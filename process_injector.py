@@ -117,8 +117,7 @@ def inject_shellcode(pid, shellcode):
     return True
 
 def main():
-    print("\n=== Fixed Process Injection (x64) ===")
-    print("[*] Properly handles 64-bit Windows")
+    print("\n=== Process Injection (x64) ===")
     print("")
     
     # Check if running as 64-bit Python
