@@ -1,5 +1,5 @@
 #!/bin/bash
-# Generate shellcode for process injection - Simple shell version
+# Generate shellcode for process injection
 
 echo "=== Generating Shellcode for Process Injection ==="
 echo "[*] Using simple shell to avoid Meterpreter signatures"
